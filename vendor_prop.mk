@@ -75,6 +75,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
+    debug.sf.latch_unsignaled=0 \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1 \
