@@ -675,6 +675,12 @@ on property:sys.boot_completed=1
     setprop persist.vendor.dpm.nsrm 3
     setprop persist.vendor.dpm.feature 7
 
+on property:persist.vendor.radio.atfwd.start=false
+    stop vendor.atfwd
+
+on property:vendor.radio.atfwd.start=false
+    stop vendor.atfwd
+
 # corefile limit
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
@@ -1027,14 +1033,14 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     disabled
     oneshot
 
-service atfwd /vendor/bin/ATFWD-daemon
+service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
     disabled
 
-on property:persist.radio.atfwd.start=true
-    start atfwd
+on property:persist.vendor.radio.atfwd.start=true
+    start vendor.atfwd
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1

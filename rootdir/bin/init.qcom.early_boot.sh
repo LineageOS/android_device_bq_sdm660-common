@@ -73,7 +73,7 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
 fi
 
 #enable atfwd daemon all targets except sda, apq, qcs
-setprop persist.radio.atfwd.start true
+setprop persist.vendor.radio.atfwd.start true
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
