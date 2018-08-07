@@ -1138,6 +1138,10 @@ service time_daemon /vendor/bin/time_daemon
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
 
+#Set GPU Opengles version
+on property:vendor.opengles.version=*
+    setprop ro.opengles.version ${vendor.opengles.version}
+
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*
     setprop ro.vendor.gpu.available_frequencies ${vendor.gpu.available_frequencies}
