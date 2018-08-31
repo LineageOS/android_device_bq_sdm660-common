@@ -1137,4 +1137,4 @@ on property:vendor.rild.libpath=*
 
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*
-    setprop ro.gpu.available_frequencies ${vendor.gpu.available_frequencies}
+    setprop ro.vendor.gpu.available_frequencies ${vendor.gpu.available_frequencies}
