@@ -36,4 +36,3 @@ start ipacm
 start ril-daemon2
 start qti
 start netmgrd
-start port-bridge

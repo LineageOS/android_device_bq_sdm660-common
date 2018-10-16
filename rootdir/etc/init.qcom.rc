@@ -363,10 +363,6 @@ on post-fs-data
     mkdir /data/misc/dhcp 0777 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-    #create port-bridge log dir
-    mkdir /data/vendor/port_bridge 0770 radio radio
-    chmod 0770 /data/vendor/port_bridge
-
     #create netmgr log dir
     mkdir /data/vendor/netmgr 0770 radio radio
     chmod 0770 /data/vendor/netmgr
@@ -681,13 +677,6 @@ service ftmd /system/bin/logwrapper /vendor/bin/ftmdaemon
     class late_start
     user root
     group bluetooth net_bt_admin misc diag net_bt
-    disabled
-    oneshot
-
-service port-bridge /vendor/bin/port-bridge
-    class main
-    user radio system
-    group radio system inet
     disabled
     oneshot
 
