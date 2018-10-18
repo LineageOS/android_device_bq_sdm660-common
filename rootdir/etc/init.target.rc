@@ -67,6 +67,9 @@ on boot
     chown system system /dev/goodix_fp
     chmod 0644          /dev/goodix_fp
 
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+
 #Load WLAN driver
    setprop wlan.driver.status "ok"
 
