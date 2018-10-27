@@ -54,6 +54,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.bq.camerabq,com.bq.camerabq.debug,org.lineageos.snap" \
     vidc.enc.dcvs.extra-buff-count=2 \
+    persist.camera.customer.config=zangya_camera.xml \
     persist.camera.exif.rotation=off \
     persist.camera.hvx.rotation=1 \
     persist.camera.imglib.usefdlite=1 \
