@@ -237,20 +237,8 @@ PRODUCT_PACKAGES += \
     Tag
 
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/nfc/libnfc-brcm_NCI2_0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm_NCI2_0.conf \
     device/bq/sdm660-common/configs/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-mtp_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp_default.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-mtp_rf1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp_rf1.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-mtp_rf2.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp_rf2.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-mtp-NQ3XX.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp-NQ3XX.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-mtp-NQ4XX.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-mtp-NQ4XX.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-nxp_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_default.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-qrd_default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-qrd_default.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-qrd_rf1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-qrd_rf1.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-qrd_rf2.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-qrd_rf2.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-qrd-NQ3XX.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-qrd-NQ3XX.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-qrd-NQ4XX.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-qrd-NQ4XX.conf
+    device/bq/sdm660-common/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # OMX
 PRODUCT_PACKAGES += \
