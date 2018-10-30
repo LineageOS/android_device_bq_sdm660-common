@@ -333,3 +333,5 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/devices/system/memory/memory* state    0660 system system
 /dev/block/platform/soc/c0c4000.sdhci/by-name/oemowninfo       0600   system     system
 /sys/devices/soc/soc:fpc1020*    fingerdown_wait 0660 system system
+/sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
+
