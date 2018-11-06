@@ -28,7 +28,7 @@
 
 namespace {
 static constexpr int32_t MIN_VTG_INPUT = 120;
-static constexpr int32_t MAX_VTG_INPUT = 2750;
+static constexpr int32_t MAX_VTG_INPUT = 1700;
 
 static constexpr char MODE_DIRECT[] = "direct";
 static constexpr char MODE_BUFFER[] = "buffer";
@@ -189,8 +189,9 @@ Return<void> Vibrator::perform(Effect effect, EffectStrength strength,
 
     if (effect == Effect::CLICK) {
         for (uint32_t i = 0; i < ARRAY_SIZE(WAVEFORM_CLICK_EFFECT_SEQ); i++) {
-            mBuffers[i] << std::hex << convertEffectStrength(strength,
-                    convertVoltageLevel(WAVEFORM_CLICK_EFFECT_SEQ[i])) <<
+            mBuffers[i] << std::hex << convertVoltageLevel(
+                    convertEffectStrength(strength,
+                        WAVEFORM_CLICK_EFFECT_SEQ[i])) <<
                 std::endl;
         }
         mBufferUpdate << 1 << std::endl;
@@ -198,8 +199,9 @@ Return<void> Vibrator::perform(Effect effect, EffectStrength strength,
     } else if (effect == Effect::DOUBLE_CLICK) {
         for (uint32_t i = 0; i < ARRAY_SIZE(WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ);
                 i++) {
-            mBuffers[i] << std::hex << convertEffectStrength(strength,
-                    convertVoltageLevel(WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ[i])) <<
+            mBuffers[i] << std::hex << convertVoltageLevel(
+                    convertEffectStrength(strength,
+                        WAVEFORM_DOUBLE_CLICK_EFFECT_SEQ[i])) <<
                 std::endl;
         }
         mBufferUpdate << 1 << std::endl;
@@ -222,8 +224,9 @@ Return<void> Vibrator::perform_1_1(Effect_1_1 effect, EffectStrength strength,
 
     if (effect == Effect_1_1::TICK) {
         for (uint32_t i = 0; i < ARRAY_SIZE(WAVEFORM_TICK_EFFECT_SEQ); i++) {
-            mBuffers[i] << std::hex << convertEffectStrength(strength,
-                    convertVoltageLevel(WAVEFORM_TICK_EFFECT_SEQ[i])) <<
+            mBuffers[i] << std::hex << convertVoltageLevel(
+                    convertEffectStrength(strength,
+                        WAVEFORM_TICK_EFFECT_SEQ[i])) <<
                 std::endl;
         }
         mBufferUpdate << 1 << std::endl;
