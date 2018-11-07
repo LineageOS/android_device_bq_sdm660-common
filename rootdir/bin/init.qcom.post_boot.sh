@@ -111,18 +111,8 @@ function configure_memory_parameters() {
     # vmpressure_file_min = (last bin - second last bin ) + last bin
     # For 64-bit arch, vmpressure_file_min = LMK minfree's last bin value
 
-ProductName=`getprop ro.product.name`
-low_ram=`getprop ro.config.low_ram`
-
-if [ "$ProductName" == "msm8996" ]; then
-      # Enable Adaptive LMK
-      echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-      echo 80640 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-
-      configure_zram_parameters
-
-      configure_read_ahead_kb_values
-else
+    ProductName=`getprop ro.product.name`
+    low_ram=`getprop ro.config.low_ram`
     arch_type=`uname -m`
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
@@ -153,11 +143,6 @@ else
         echo "18432,23040,27648,32256,55296,80640" > /sys/module/lowmemorykiller/parameters/minfree
         echo 262144 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
         echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-    elif [ "$arch_type" == "aarch64" ] && [ $MemTotal -gt 1048576 ]; then
-        echo 10 > /sys/module/process_reclaim/parameters/pressure_min
-        echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
-        echo "14746,18432,22118,25805,40000,55000" > /sys/module/lowmemorykiller/parameters/minfree
-        echo 55000 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     elif [ "$arch_type" == "aarch64" ]; then
         echo 50 > /sys/module/process_reclaim/parameters/pressure_min
         echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
@@ -183,11 +168,6 @@ else
         fi
     fi
 
-    #Enable oom_reaper
-    if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
-        echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
-    fi
-
     configure_zram_parameters
 
     configure_read_ahead_kb_values
@@ -209,7 +189,6 @@ else
         mkswap /data/system/swap/swapfile
         swapon /data/system/swap/swapfile -p 32758
     fi
-fi
 }
 
 function enable_memory_features()
@@ -244,13 +223,8 @@ case "$target" in
             panel=${panel:2:4}
         fi
 
-        if [ $panel -gt 1080 ]; then
-            echo 2 > /proc/sys/kernel/sched_window_stats_policy
-            echo 5 > /proc/sys/kernel/sched_ravg_hist_size
-        else
             echo 3 > /proc/sys/kernel/sched_window_stats_policy
             echo 3 > /proc/sys/kernel/sched_ravg_hist_size
-        fi
         #Apply settings for sdm660, sdm636,sda636
         case "$soc_id" in
                 "317" | "324" | "325" | "326" | "345" | "346" )
