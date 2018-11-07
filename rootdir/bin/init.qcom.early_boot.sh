@@ -31,21 +31,9 @@
 export PATH=/vendor/bin
 
 # Set platform variables
-if [ -f /sys/devices/soc0/hw_platform ]; then
-    soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
-else
-    soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
-fi
-if [ -f /sys/devices/soc0/soc_id ]; then
-    soc_hwid=`cat /sys/devices/soc0/soc_id` 2> /dev/null
-else
-    soc_hwid=`cat /sys/devices/system/soc/soc0/id` 2> /dev/null
-fi
-if [ -f /sys/devices/soc0/platform_version ]; then
-    soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
-else
-    soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
-fi
+soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
+soc_hwid=`cat /sys/devices/soc0/soc_id` 2> /dev/null
+soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
 
 if [ -f /sys/class/graphics/fb0/virtual_size ]; then
     res=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
@@ -54,79 +42,13 @@ fi
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-#For drm based display driver
-vbfile=/sys/module/drm/parameters/vblankoffdelay
-if [ -w $vbfile ]; then
-    echo -1 >  $vbfile
-else
-    log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
-fi
 
 target=`getprop ro.board.platform`
 
-if [ -f /firmware/verinfo/ver_info.txt ]; then
-    # In mpss AT version is greater than 3.1, need
-    # to use the new vendor-ril which supports L+L feature
-    # otherwise use the existing old one.
-    modem=`cat /firmware/verinfo/ver_info.txt |
-            sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
-            sed 's/.*MPSS.\(.*\)/\1/g' | cut -d \. -f 1`
-    if [ "$modem" = "AT" ]; then
-        version=`cat /firmware/verinfo/ver_info.txt |
-                sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
-                sed 's/.*AT.\(.*\)/\1/g' | cut -d \- -f 1`
-        if [ ! -z $version ]; then
-            zygote=`getprop ro.zygote`
-            case "$zygote" in
-                "zygote64_32")
-                    if [ "$version" \< "3.1" ]; then
-                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-                "zygote32")
-                    if [ "$version" \< "3.1" ]; then
-                        echo "legacy qmi load for TA less than 3.1"
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-            esac
-        fi
-    # In mpss TA version is greater than 3.0, need
-    # to use the new vendor-ril which supports L+L feature
-    # otherwise use the existing old one.
-    elif [ "$modem" = "TA" ]; then
-        version=`cat /firmware/verinfo/ver_info.txt |
-                sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
-                sed 's/.*TA.\(.*\)/\1/g' | cut -d \- -f 1`
-        if [ ! -z $version ]; then
-            zygote=`getprop ro.zygote`
-            case "$zygote" in
-                "zygote64_32")
-                    if [ "$version" \< "3.0" ]; then
-                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-                "zygote32")
-                    if [ "$version" \< "3.0" ]; then
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-            esac
-        fi
-    fi;
-fi
+setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
 
-baseband=`getprop ro.baseband`
 #enable atfwd daemon all targets except sda, apq, qcs
-setprop persist.radio.atfwd.start true;;
+setprop persist.vendor.radio.atfwd.start true;;
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
@@ -160,6 +82,7 @@ function setHDMIPermission() {
    set_perms $file/pa system.graphics 0664
    set_perms $file/cec/wr_msg system.graphics 0600
    set_perms $file/hdcp/tp system.graphics 0664
+   set_perms $file/hdcp2p2/min_level_change system.graphics 0660
    set_perms $file/hdmi_audio_cb audioserver.audio 0600
    set_perms $file/pll_enable system.graphics 0664
    set_perms $file/hdmi_ppm system.graphics 0664
@@ -193,12 +116,12 @@ then
     file=/sys/class/graphics/fb0/mdp/caps
     if [ -f "$file" ]
     then
-        setprop debug.gralloc.gfx_ubwc_disable 1
+        setprop vendor.gralloc.disable_ubwc 1
         cat $file | while read line; do
           case "$line" in
                     *"ubwc"*)
-                    setprop debug.gralloc.enable_fb_ubwc 1
-                    setprop debug.gralloc.gfx_ubwc_disable 0
+                    setprop vendor.gralloc.enable_fb_ubwc 1
+                    setprop vendor.gralloc.disable_ubwc 0
                 esac
         done
     fi
@@ -227,8 +150,8 @@ then
     done
 fi
 
-# copy GPU frequencies to system property
+# copy GPU frequencies to vendor property
 if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
     gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
-    setprop ro.gpu.available_frequencies "$gpu_freq"
+    setprop vendor.gpu.available_frequencies "$gpu_freq"
 fi
