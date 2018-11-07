@@ -76,8 +76,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1 \
-    ro.opengles.version=196610 \
-    ro.sf.lcd_density=420
+    vendor.opengles.version=196610 \
+    ro.sf.lcd_density=420 \
+    ro.qualcomm.cabl=2 \
+    vendor.display.lcd_density=420
 
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
