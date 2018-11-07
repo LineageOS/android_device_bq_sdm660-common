@@ -31,8 +31,8 @@
 # start ril-daemon only for targets on which radio is present
 #
 
-start ipacm-diag
-start ipacm
-start ril-daemon2
-start qti
-start netmgrd
+start vendor.ipacm-diag
+start vendor.ipacm
+start vendor.ril-daemon2
+start vendor.qti
+start vendor.netmgrd
