@@ -349,6 +349,7 @@ on boot
 
     start rmt_storage
     write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/audio-app/cpus 1-2
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
@@ -412,7 +413,7 @@ on post-fs-data
     mkdir /data/misc/qvop 0771 system system
 
     #Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0771 camera camera
+    mkdir /data/vendor/camera 0771 camera camera
 
     #Create folder of camera
     mkdir /data/vendor/camera 0770 camera camera
@@ -589,6 +590,7 @@ on post-fs-data
     # set aggressive read ahead for dm-0 and dm-1 during boot up
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/dm-2/queue/read_ahead_kb 2048
 
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
@@ -626,7 +628,6 @@ service wdsdaemon /vendor/bin/wdsdaemon -su
     user root
     group root
     oneshot
-    disabled
 
 on property:persist.sys.start_wdsdaemon=1
     start wdsdaemon
@@ -730,7 +731,7 @@ service vendor.cnd /vendor/bin/cnd
 service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
-    group radio system
+    group system
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
