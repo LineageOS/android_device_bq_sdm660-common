@@ -42,17 +42,6 @@ setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
 #enable atfwd daemon all targets except sda, apq, qcs
 setprop persist.vendor.radio.atfwd.start true
 
-# Setup display nodes & permissions
-# HDMI can be fb1 or fb2
-# Loop through the sysfs nodes and determine
-# the HDMI(dtv panel)
-
-function set_perms() {
-    #Usage set_perms <filename> <ownership> <permission>
-    chown -h $2 $1
-    chmod $3 $1
-}
-
 # check for the type of driver FB or DRM
 fb_driver=/sys/class/graphics/fb0
 if [ -e "$fb_driver" ]
