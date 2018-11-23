@@ -31,26 +31,9 @@
 export PATH=/vendor/bin
 
 # Set platform variables
-if [ -f /sys/devices/soc0/hw_platform ]; then
-    soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
-else
-    soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
-fi
-if [ -f /sys/devices/soc0/soc_id ]; then
-    soc_hwid=`cat /sys/devices/soc0/soc_id` 2> /dev/null
-else
-    soc_hwid=`cat /sys/devices/system/soc/soc0/id` 2> /dev/null
-fi
-if [ -f /sys/devices/soc0/platform_version ]; then
-    soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
-else
-    soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
-fi
-
-if [ -f /sys/class/graphics/fb0/virtual_size ]; then
-    res=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
-    fb_width=${res%,*}
-fi
+soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
+soc_hwid=`cat /sys/devices/soc0/soc_id` 2> /dev/null
+soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
@@ -76,24 +59,12 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                 sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
                 sed 's/.*AT.\(.*\)/\1/g' | cut -d \- -f 1`
         if [ ! -z $version ]; then
-            zygote=`getprop ro.zygote`
-            case "$zygote" in
-                "zygote64_32")
                     if [ "$version" \< "3.1" ]; then
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
                     ;;
-                "zygote32")
-                    if [ "$version" \< "3.1" ]; then
-                        echo "legacy qmi load for TA less than 3.1"
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-            esac
         fi
     # In mpss TA version is greater than 3.0, need
     # to use the new vendor-ril which supports L+L feature
@@ -103,23 +74,12 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                 sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
                 sed 's/.*TA.\(.*\)/\1/g' | cut -d \- -f 1`
         if [ ! -z $version ]; then
-            zygote=`getprop ro.zygote`
-            case "$zygote" in
-                "zygote64_32")
                     if [ "$version" \< "3.0" ]; then
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
                     ;;
-                "zygote32")
-                    if [ "$version" \< "3.0" ]; then
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-qmi-1.so"
-                    else
-                        setprop vendor.rild.libpath "/vendor/lib/libril-qc-hal-qmi.so"
-                    fi
-                    ;;
-            esac
         fi
     fi;
 fi
