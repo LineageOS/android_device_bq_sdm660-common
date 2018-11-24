@@ -64,7 +64,6 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
-                    ;;
         fi
     # In mpss TA version is greater than 3.0, need
     # to use the new vendor-ril which supports L+L feature
@@ -79,14 +78,13 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
-                    ;;
         fi
     fi;
 fi
 
 baseband=`getprop ro.baseband`
 #enable atfwd daemon all targets except sda, apq, qcs
-setprop persist.radio.atfwd.start true;;
+setprop persist.radio.atfwd.start true
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
