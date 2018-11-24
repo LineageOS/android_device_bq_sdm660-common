@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb97b091_e269bbcd",
+        "filename": "rootdir/bin/init.qcom.early_boot.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6521
+      },
+      "writtenOn": "2018-11-24T22:06:40Z",
+      "side": 0,
+      "message": "I don\u0027t think these paths are used.",
+      "range": {
+        "startLine": 135,
+        "startChar": 22,
+        "endLine": 135,
+        "endChar": 25
+      },
+      "revId": "901bef0edaa8fe2d7371b0d410d40c03ddd0bd96",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
