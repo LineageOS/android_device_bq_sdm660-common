@@ -37,16 +37,6 @@ soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-#For drm based display driver
-vbfile=/sys/module/drm/parameters/vblankoffdelay
-if [ -w $vbfile ]; then
-    echo -1 >  $vbfile
-else
-    log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
-fi
-
-target=`getprop ro.board.platform`
-
 if [ -f /firmware/verinfo/ver_info.txt ]; then
     # In mpss AT version is greater than 3.1, need
     # to use the new vendor-ril which supports L+L feature
@@ -64,7 +54,6 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
-                    ;;
         fi
     # In mpss TA version is greater than 3.0, need
     # to use the new vendor-ril which supports L+L feature
@@ -79,14 +68,12 @@ if [ -f /firmware/verinfo/ver_info.txt ]; then
                     else
                         setprop vendor.rild.libpath "/vendor/lib64/libril-qc-hal-qmi.so"
                     fi
-                    ;;
         fi
     fi;
 fi
 
-baseband=`getprop ro.baseband`
 #enable atfwd daemon all targets except sda, apq, qcs
-setprop persist.radio.atfwd.start true;;
+setprop persist.radio.atfwd.start true
 
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
@@ -101,30 +88,13 @@ function set_perms() {
 
 function setHDMIPermission() {
    file=/sys/class/graphics/fb$1
-   dev_file=/dev/graphics/fb$1
-   dev_gfx_hdmi=/devices/virtual/switch/hdmi
 
    set_perms $file/hpd system.graphics 0664
    set_perms $file/res_info system.graphics 0664
-   set_perms $file/vendor_name system.graphics 0664
-   set_perms $file/product_description system.graphics 0664
-   set_perms $file/video_mode system.graphics 0664
-   set_perms $file/format_3d system.graphics 0664
    set_perms $file/s3d_mode system.graphics 0664
-   set_perms $file/dynamic_fps system.graphics 0664
    set_perms $file/msm_fb_dfps_mode system.graphics 0664
-   set_perms $file/hdr_stream system.graphics 0664
-   set_perms $file/cec/enable system.graphics 0664
-   set_perms $file/cec/logical_addr system.graphics 0664
-   set_perms $file/cec/rd_msg system.graphics 0664
    set_perms $file/pa system.graphics 0664
-   set_perms $file/cec/wr_msg system.graphics 0600
    set_perms $file/hdcp/tp system.graphics 0664
-   set_perms $file/hdmi_audio_cb audioserver.audio 0600
-   set_perms $file/pll_enable system.graphics 0664
-   set_perms $file/hdmi_ppm system.graphics 0664
-
-   ln -s $dev_file $dev_gfx_hdmi
 }
 
 # check for the type of driver FB or DRM
@@ -132,7 +102,7 @@ fb_driver=/sys/class/graphics/fb0
 if [ -e "$fb_driver" ]
 then
     # check for HDMI connection
-    for fb_cnt in 0 1 2 3
+    for fb_cnt in 0 1 2
     do
         file=/sys/class/graphics/fb$fb_cnt/msm_fb_panel_info
         if [ -f "$file" ]
@@ -175,7 +145,7 @@ then
     fi
 
     # set lineptr permissions for all displays
-    for fb_cnt in 0 1 2 3
+    for fb_cnt in 0 1 2
     do
         file=/sys/class/graphics/fb$fb_cnt
         if [ -f "$file/lineptr_value" ]; then
