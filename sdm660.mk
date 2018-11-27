@@ -21,6 +21,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
 
 # Properties
 -include device/bq/sdm660-common/vendor_prop.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
