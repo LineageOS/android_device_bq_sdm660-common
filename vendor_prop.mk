@@ -146,6 +146,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config.extra=none
 
+#property to enable narrow search range for video encoding and enable PQ feature by default
+PRODUCT_PROPERTY_OVERRIDES +=  \
+    vidc.enc.target_support_bframe=1 \
+    vendor.vidc.enc.disable_bframes=1 \
+    vendor.vidc.dec.enable.downscalar=1 \
+    vendor.vidc.enc.disable.pq=false
+
 # VNDK
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.vndk.version=27
