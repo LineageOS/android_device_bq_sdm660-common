@@ -71,6 +71,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=420
 
+# Google
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-bq
+
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
@@ -147,8 +151,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.vndk.version=27
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=27.1.0 \
-    ro.product.first_api_level=27
+    ro.vendor.vndk.version=27.1.0
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
