@@ -148,6 +148,7 @@
 			<Resolution width="1440" height="1080" stall="47" />
 			<Resolution width="1280" height="960" stall="46" />
 			<Resolution width="1280" height="720" stall="45" />
+			<Resolution width="1280" height="640" stall="45" />
 			<Resolution width="1024" height="768" stall="45" />
 			<Resolution width="800" height="600" stall="45" />
 			<Resolution width="720" height="480" stall="44" />
