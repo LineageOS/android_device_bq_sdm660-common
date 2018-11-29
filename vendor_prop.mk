@@ -61,6 +61,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.lib2d.rotation=on \
     video.disable.ubwc=1
 
+# CABL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.cabl=2 \
+    config.cabl.xml=1 \
+    config.cabl.path=/vendor/etc \
+    config.cabl.xml.print=1 \
+    debug.cabl.logs=2 \
+    ro.qcom.dpps.panelbased.config=1
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
@@ -68,7 +77,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1 \
     ro.opengles.version=196610 \
-    ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=420
 
 # Google
