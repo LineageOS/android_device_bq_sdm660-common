@@ -42,12 +42,7 @@ echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 #
 start_copying_prebuilt_qcril_db
 echo 1 > /data/vendor/radio/db_check_done
-if [ -f /sys/devices/soc0/soc_id ]; then
-    platformid=`cat /sys/devices/soc0/soc_id`
-else
-    platformid=`cat /sys/devices/system/soc/soc0/id`
-fi
-
+platformid=`cat /sys/devices/soc0/soc_id`
 
 start_msm_irqbalance660()
 {
@@ -67,11 +62,7 @@ start_msm_irqbalance660
 #
 # Make modem config folder and copy firmware config to that folder for RIL
 #
-if [ -f /data/vendor/radio/ver_info.txt ]; then
-    prev_version_info=`cat /data/vendor/radio/ver_info.txt`
-else
-    prev_version_info=""
-fi
+prev_version_info=`cat /data/vendor/radio/ver_info.txt`
 
 cur_version_info=`cat /firmware/verinfo/ver_info.txt`
 if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
@@ -83,7 +74,7 @@ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_versio
     cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
     chown radio.radio /data/vendor/radio/ver_info.txt
 fi
-cp /firmware/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
+cp /firmware/image/modem_pr/mcfg/configs/mbn_ota.txt /data/vendor/radio/modem_config
 chown radio.radio /data/vendor/radio/modem_config/mbn_ota.txt
 echo 1 > /data/vendor/radio/copy_complete
 
