@@ -2,3 +2,4 @@ type debugfs_rmt, debugfs_type, fs_type;
 type debugfs_wlan, debugfs_type, fs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
 type sysfs_wifi, sysfs_type, fs_type;
+type proc_touchpanel, fs_type, sysfs_type;
