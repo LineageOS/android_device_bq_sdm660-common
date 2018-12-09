@@ -175,6 +175,9 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
 
+# Tap to Wake
+TARGET_TAP_TO_WAKE_NODE := "/proc/android_touch/SMWP"
+
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
 
