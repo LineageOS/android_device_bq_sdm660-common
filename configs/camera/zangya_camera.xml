@@ -196,14 +196,12 @@ LensInfo : Information of the lens present in the module.
   <CameraModuleConfig>
     <CameraId>2</CameraId>
     <SensorName>s5k4h7yx_ofilm_zangya</SensorName>
-    <!--ActuatorName>lc898217xc</ActuatorName-->
     <EepromName>s5k4h7yx_ofilm_off0812</EepromName>
     <FlashName>pmic</FlashName>
     <ChromatixName>s5k4h7yx_ofilm_zangya_chromatix</ChromatixName>
     <ModesSupported>1</ModesSupported>
     <Position>FRONT</Position>
     <MountAngle>270</MountAngle>
-    <!--SensorSlaveAddress>0x34</SensorSlaveAddress-->
     <CSIInfo>
       <CSIDCore>2</CSIDCore>
       <LaneMask>0x1F</LaneMask>
@@ -222,14 +220,12 @@ LensInfo : Information of the lens present in the module.
   <CameraModuleConfig>
     <CameraId>2</CameraId>
     <SensorName>s5k4h7yx_holitech_zangya</SensorName>
-    <!--ActuatorName>lc898217xc</ActuatorName-->
     <EepromName>s5k4h7yx_holitech_elq8909m</EepromName>
     <FlashName>pmic</FlashName>
     <ChromatixName>s5k4h7yx_holitech_zangya_chromatix</ChromatixName>
     <ModesSupported>1</ModesSupported>
     <Position>FRONT</Position>
     <MountAngle>270</MountAngle>
-    <!--SensorSlaveAddress>0x34</SensorSlaveAddress-->
     <CSIInfo>
       <CSIDCore>2</CSIDCore>
       <LaneMask>0x1F</LaneMask>
