@@ -134,10 +134,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.proc_nw_scan=1 \
     persist.radio.rat_on=disabled
 
-# Security Patch Level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2018-12-01
-
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.dev_ori=false \
