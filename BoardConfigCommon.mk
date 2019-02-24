@@ -133,12 +133,14 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=1 androidboot.configfs=true sched_enable_hmp=1 sched_enable_power_aware=1
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/bq/sdm660
+TARGET_KERNEL_SOURCE := kernel/bq/sdm660-pie
+SELINUX_IGNORE_NEVERALLOWS := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
