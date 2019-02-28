@@ -679,8 +679,8 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wcd_cpe0/fw_name
     start qcom-post-boot
 
-    setprop persist.vendor.dpm.nsrm 3
-    setprop persist.vendor.dpm.feature 7
+    setprop persist.vendor.dpm.nsrm 1
+    setprop persist.vendor.dpm.feature 3
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
