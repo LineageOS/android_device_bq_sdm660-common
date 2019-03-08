@@ -38,6 +38,8 @@ soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
 setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
+setprop vendor.display.lcd_density 480
+setprop vendor.media.sdm660.version 1
 
 #enable atfwd daemon all targets except sda, apq, qcs
 setprop persist.vendor.radio.atfwd.start true
@@ -70,7 +72,8 @@ then
                 esac
         done
     fi
-
+else
+    set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
 fi
 
 # copy GPU frequencies to vendor property
