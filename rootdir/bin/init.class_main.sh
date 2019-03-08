@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
+# Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -30,10 +30,53 @@
 #
 # start ril-daemon only for targets on which radio is present
 #
+baseband=`getprop ro.baseband`
+datamode=`getprop persist.vendor.data.mode`
+qcrild_status=true
 
-start vendor.ipacm-diag
-start vendor.ipacm
-start vendor.ril-daemon2
-start vendor.qti
-start vendor.dataadpl
-start vendor.netmgrd
+    # For older modem packages launch ril-daemon.
+            version=`cat /vendor/firmware_mnt/verinfo/ver_info.txt |
+                    sed -n 's/^[^:]*modem[^:]*:[[:blank:]]*//p' |
+                    sed 's/.*AT.\(.*\)/\1/g' | cut -d \- -f 1`
+            if [ ! -z $version ]; then
+                if [ "$version" \< "3.1" ]; then
+                    qcrild_status=false
+                fi
+            fi
+    if [ "$qcrild_status" = "true" ]; then
+        # Make sure both rild, qcrild are not running at same time.
+        # This is possible with vanilla aosp system image.
+        stop ril-daemon
+        stop vendor.ril-daemon
+
+        start vendor.qcrild
+    else
+        start ril-daemon
+        start vendor.ril-daemon
+    fi
+
+    start vendor.ipacm-diag
+    start vendor.ipacm
+
+        if [ "$qcrild_status" = "true" ]; then
+          start vendor.qcrild2
+        else
+          start vendor.ril-daemon2
+        fi
+
+    case "$datamode" in
+        "tethered")
+            start vendor.dataqti
+            start vendor.dataadpl
+            start vendor.port-bridge
+            ;;
+        "concurrent")
+            start vendor.dataqti
+            start vendor.dataadpl
+            start vendor.netmgrd
+            start vendor.port-bridge
+            ;;
+        *)
+            start vendor.netmgrd
+            ;;
+    esac
