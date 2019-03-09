@@ -34,6 +34,6 @@
 start vendor.ipacm-diag
 start vendor.ipacm
 start vendor.ril-daemon2
-start vendor.qti
+start vendor.dataqti
 start vendor.dataadpl
 start vendor.netmgrd
