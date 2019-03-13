@@ -939,12 +939,6 @@ service nqnfcinfo /vendor/bin/nqnfcinfo
     user system
     oneshot
 
-service cnss_diag /vendor/bin/cnss_diag -q -f
-    class main
-    user system
-    group system wifi inet net_admin sdcard_rw media_rw diag
-    oneshot
-
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
