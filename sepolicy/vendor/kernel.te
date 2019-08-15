@@ -1,2 +1,3 @@
 # Allow kernel to search in debugfs_wlan
 allow kernel debugfs_wlan:dir search;
+allow kernel mnt_vendor_file:dir search;
