@@ -337,7 +337,7 @@
     <ctl name="RDAC2 MUX" value="ZERO" />
 
     <!-- Interpolator chain controls -->
-	<!-- ADD RX Chain Controls --> 
+	<!-- ADD RX Chain Controls -->
 
     <ctl name="RX1 MIX1 INP1" value="ZERO" />
     <ctl name="RX2 MIX1 INP1" value="ZERO" />
@@ -1789,7 +1789,7 @@
 
     <path name="handset-mic">
         <path name="adc1" />
-        <ctl name="ADC1 Volume" value="4"/>
+        <ctl name="ADC1 Volume" value="0"/>
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
@@ -1816,12 +1816,12 @@
 
     <path name="headphones">
         <ctl name="INT0_MI2S_RX Channels" value="Two" />
+        <ctl name="COMP0 RX1" value="1" />
+        <ctl name="COMP0 RX2" value="1" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="RX HPH Mode" value="HD2" />
-        <ctl name="COMP0 RX1" value="1" />
-        <ctl name="COMP0 RX2" value="1" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="RX1 Digital Volume" value="77"/>
@@ -1986,7 +1986,9 @@
     </path>
 
     <path name="voice-rec-mic">
-        <path name="handset-mic" />
+        <path name="adc1" />
+        <ctl name="ADC1 Volume" value="4"/>
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
     <path name="camcorder-mic">
@@ -2058,6 +2060,17 @@
         <ctl name="INT3_MI2S_TX Channels" value="Two" />
         <ctl name="ADC2 MUX" value="INP3" />
     </path>
+  
+    <path name="handset-stereo-dmic-ef-reverse">
+        <ctl name="ADC1 Volume" value="0" />
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="ADC1_INP1 Switch" value="1" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="ADC3 Volume" value="0" />
+        <ctl name="DEC2 MUX" value="ADC2" />
+        <ctl name="INT3_MI2S_TX Channels" value="Two" />
+        <ctl name="ADC2 MUX" value="INP3" />
+    </path>
 
     <path name="speaker-stereo-dmic-ef">
         <path name="speaker-dmic-endfire" />
@@ -2069,6 +2082,8 @@
 
     <path name="voice-dmic-ef">
         <path name="dmic-endfire" />
+        <ctl name="ADC1 Volume" value="4" />
+        <ctl name="ADC3 Volume" value="4" />
     </path>
 
     <path name="voice-speaker-dmic-ef">
