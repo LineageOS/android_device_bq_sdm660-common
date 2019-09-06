@@ -181,7 +181,7 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.zangya.usb.rc \
+    init.qcom.usb.rc \
     init.class_main.sh \
     init.qcom.power.sh \
     init.qcom.early_boot.sh \
@@ -189,7 +189,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.rc \
-    ueventd.zangya.rc
+    ueventd.qcom.rc
 
 # IPACM
 PRODUCT_PACKAGES += \
