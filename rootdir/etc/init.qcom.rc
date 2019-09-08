@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /vendor/etc/init/hw/init.zangya.usb.rc
+import /vendor/etc/init/hw/init.qcom.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
