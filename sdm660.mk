@@ -157,6 +157,10 @@ PRODUCT_PACKAGES += \
     libvulkan \
     memtrack.sdm660
 
+# FBE support
+PRODUCT_COPY_FILES += \
+    device/bq/sdm660-common/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
