@@ -168,7 +168,6 @@ TARGET_RIL_VARIANT := caf
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist \
     /vendor/bt_firmware:/bt_firmware \
