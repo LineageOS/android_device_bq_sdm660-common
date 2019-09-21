@@ -168,11 +168,7 @@ TARGET_RIL_VARIANT := caf
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Root
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
-    /vendor/bt_firmware:/bt_firmware \
-    /vendor/dsp:/dsp \
-    /vendor/firmware_mnt:/firmware
+BOARD_ROOT_EXTRA_FOLDERS := persist
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
