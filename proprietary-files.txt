@@ -481,6 +481,7 @@ vendor/lib64/libdpmqmihal.so
 
 # DRM and SEE
 vendor/bin/qseecomd
+vendor/bin/seemp_healthd
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib/libcppf.so
@@ -836,6 +837,14 @@ vendor/lib64/vendor.display.color@1.2.so
 vendor/lib/vendor.display.postproc@1.0.so
 vendor/lib64/vendor.display.postproc@1.0.so
 
+# Power-off alarm
+-vendor/app/PowerOffAlarm/PowerOffAlarm.apk
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
+vendor/bin/power_off_alarm
+vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.alarm@1.0.so
+
 # QMI
 etc/permissions/qti_libpermissions.xml:vendor/etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml
@@ -902,6 +911,7 @@ vendor/bin/adpl
 vendor/bin/ipacm-diag
 vendor/bin/netmgrd
 vendor/bin/pd-mapper
+vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
@@ -1124,6 +1134,11 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/sensor_calibrate.so
 vendor/lib64/sensors.ssc.so
 
+# SSR
+vendor/bin/ssr_diag
+vendor/bin/ssr_setup
+vendor/bin/subsystem_ramdump
+
 # Thermal
 vendor/bin/thermal-engine
 vendor/etc/thermal-engine.conf
@@ -1142,3 +1157,13 @@ vendor/lib64/libtime_genoff.so
 bin/move_wifi_data.sh
 vendor/bin/cnss-daemon
 vendor/bin/ptt_socket_app
+
+# init.target.rc
+#bin/seempd
+#bin/smcinvoked
+
+# init.qcom.rc
+#bin/bt_logger
+#bin/dun-server
+bin/ftmdaemon
+vendor/bin/diag_mdlog

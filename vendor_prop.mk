@@ -83,9 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
-    sdm.debug.disable_skip_validate=1 \
-    vendor.opengles.version=196610 \
-    vendor.display.lcd_density=420
+    sdm.debug.disable_skip_validate=1
 
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -155,8 +153,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.delta_time.enable=true
 
 # USB
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config.extra=none
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.sys.usb.config.extra=none
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
