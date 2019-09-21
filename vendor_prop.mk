@@ -51,10 +51,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    bt.max.hfpclient.connections=1 \
-    persist.bt.a2dp.aac_disable=true \
     persist.vendor.bt.enable.splita2dp=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aac \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+    vendor.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
@@ -158,10 +157,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config.extra=none
-
-# VNDK
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.vndk.version=28
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
