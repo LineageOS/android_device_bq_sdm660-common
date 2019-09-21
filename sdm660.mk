@@ -95,7 +95,8 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    libbt-vendor
+    libbt-vendor \
+    libbthost_if
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2160
