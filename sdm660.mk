@@ -50,9 +50,11 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl:32 \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio@4.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@4.0-impl:32 \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.effect@2.0-service \
     audio.a2dp.default \
     audio.primary.sdm660 \
@@ -67,6 +69,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    device/bq/sdm660-common/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
     device/bq/sdm660-common/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     device/bq/sdm660-common/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     device/bq/sdm660-common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
@@ -95,7 +98,7 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    libbt-vendor
+    libbthost_if
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2160
