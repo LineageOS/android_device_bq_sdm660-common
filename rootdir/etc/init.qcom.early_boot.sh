@@ -37,8 +37,6 @@ soc_hwver=`cat /sys/devices/soc0/platform_version` 2> /dev/null
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-setprop vendor.rild.libpath "/vendor/lib64/libril-qc-qmi-1.so"
-
 #enable atfwd daemon all targets except sda, apq, qcs
 setprop persist.vendor.radio.atfwd.start true
 
