@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf00f8dd_3368bfdf",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-29T17:19:58Z",
+      "side": 1,
+      "message": "No idea why you are adding these, but all PRODUCT_* should go to device.mk.",
+      "revId": "fd64c543440f536d07f81b132547d5501f56fc89",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
