@@ -943,6 +943,11 @@ service adsprpcd /vendor/bin/adsprpcd audiopd
     user media
     group media
 
+service cdsprpcd /vendor/bin/cdsprpcd
+    class main
+    user system
+    group system
+
 service energy-awareness /vendor/bin/energy-awareness
     class main
     user system
