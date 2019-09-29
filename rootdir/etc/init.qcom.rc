@@ -344,6 +344,12 @@ on boot
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
+service vendor.cdsprpcd /vendor/bin/cdsprpcd
+    class main
+    user system
+    group system
+    disabled
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -652,7 +658,6 @@ on property:sys.boot_completed=1
     #WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wdsp0/boot
     chown media audio /sys/kernel/wcd_cpe0/fw_name
-    start qcom-post-boot
 
     setprop persist.vendor.dpm.nsrm 1
     setprop persist.vendor.dpm.feature 3
@@ -1031,6 +1036,10 @@ on property:persist.vendor.radio.atfwd.start=true
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
+
+
+on property:sys.boot_completed=1
+    start qcom-post-boot
 
 service hostapd_fst /vendor/bin/hw/hostapd -dd -g /data/vendor/wifi/hostapd/global
     interface android.hardware.wifi.hostapd@1.0::IHostapd default

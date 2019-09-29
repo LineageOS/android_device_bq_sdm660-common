@@ -151,7 +151,6 @@ low_ram=`getprop ro.config.low_ram`
     configure_zram_parameters
 
     configure_read_ahead_kb_values
-fi
 }
 
 function enable_memory_features()
