@@ -114,7 +114,7 @@ PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
 
 PRODUCT_PACKAGES += \
-    android.frameworks.displayservice@1.0_32 \
+    android.frameworks.displayservice@1.0:32 \
     android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
     libxml2 \
