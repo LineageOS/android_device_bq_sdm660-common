@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa064167_58862658",
+        "filename": "sdm660.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-29T19:46:27Z",
+      "side": 1,
+      "message": "Did you miss the part where I wrote that this is not needed at all?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 35
+      },
+      "revId": "bd4836619aaecc5383c75230854d00ddad82052a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
