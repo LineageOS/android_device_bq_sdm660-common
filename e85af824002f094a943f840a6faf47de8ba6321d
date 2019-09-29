@@ -52,6 +52,24 @@
       "revId": "e85af824002f094a943f840a6faf47de8ba6321d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ea0f3c6_43994ee8",
+        "filename": "sdm660.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 6323
+      },
+      "writtenOn": "2019-09-29T19:41:41Z",
+      "side": 1,
+      "message": "oh, yeah, my mistake.",
+      "parentUuid": "9d372d2f_1616b401",
+      "revId": "e85af824002f094a943f840a6faf47de8ba6321d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
