@@ -34,6 +34,24 @@
       "revId": "e85af824002f094a943f840a6faf47de8ba6321d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d372d2f_1616b401",
+        "filename": "sdm660.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2019-09-29T19:39:00Z",
+      "side": 1,
+      "message": "That\u0027s wrong. There isn\u0027t a single treble device doing that. Do you noticed that you previously had it along with other WiFi-related board flags?\n\nSee this:\n\n\u003e  bgcngm@digital:~/android/lineage$ grep PRODUCT_VENDOR_MOVE_ENABLED -r build/make/\n\u003e  bgcngm@digital:~/android/lineage$ grep PRODUCT_VENDOR_MOVE_ENABLED -r hardware/qcom/wlan-caf/\n\u003e  hardware/qcom/wlan-caf/wcnss-service/Android.mk:ifeq ($(PRODUCT_VENDOR_MOVE_ENABLED),true)\n\u003e  hardware/qcom/wlan-caf/wcnss-service/Android.mk:ifeq ($(PRODUCT_VENDOR_MOVE_ENABLED),true)\n\n\nAlso, considering your device doesn\u0027t use wcnss-service, you can drop it.",
+      "parentUuid": "0016f46a_bc9ffc97",
+      "revId": "e85af824002f094a943f840a6faf47de8ba6321d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
