@@ -59,7 +59,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.bq.camerabq,com.bq.camerabq.debug,org.lineageos.snap" \
+    vendor.vidc.enc.disable_bframes=1 \
+    vendor.vidc.enc.disable.pq=false \
+    vendor.vidc.dec.enable.downscalar=0 \
     vidc.enc.dcvs.extra-buff-count=2 \
+    vidc.enc.target_support_bframe=1 \
     persist.vendor.camera.customer.config=zangya_camera.xml \
     persist.vendor.camera.exif.rotation=off \
     persist.vendor.camera.expose.aux=1 \
@@ -67,6 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.imglib.usefdlite=1 \
     persist.vendor.camera.lib2d.rotation=on \
     persist.vendor.camera.isp.clock.optmz=0 \
+    persist.vendor.camera.preview.ubwc=0 \
     vendor.video.disable.ubwc=1
 
 # CABL
@@ -80,7 +85,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.hw=1 \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1 \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1
