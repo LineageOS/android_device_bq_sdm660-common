@@ -67,6 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.imglib.usefdlite=1 \
     persist.vendor.camera.lib2d.rotation=on \
     persist.vendor.camera.isp.clock.optmz=0 \
+    persist.vendor.camera.preview.ubwc=0 \
     vendor.video.disable.ubwc=1
 
 # CABL
