@@ -8,20 +8,20 @@
 	<CABLBackLightMinRatio units='uint'>412 565 668</CABLBackLightMinRatio>
 	<CABLBackLightMaxRatio units='uint'>1024 1024 1024</CABLBackLightMaxRatio>
 	<CABLPixelDistortion units='uint'>200 200 200</CABLPixelDistortion>
-	<CABLBackLightStepSize units='uint'>1 1 1</CABLBackLightStepSize>
-	<GammaResponseTableLength units='uint'>33</GammaResponseTableLength>
+	<CABLBackLightStepSize units='uint'>6 6 6</CABLBackLightStepSize>
+	<GammaResponseTableLength units='uint'>33</GammaResponseTableLength>  
 	<GammaResponseTableGrayScale units='uint'>
-           0   28  60  92  124  157  189  221
-         253  285  317  349  381  414  446  478
+           0   28  60  92  125  157  189  221
+         253  285  317  349  382  414  446  478
          510  542  574  606  638  671  703  735
-         767  799  831  863 895  928  960   992
+         767  779  811  823  855  908  960   992      
         1024
 	</GammaResponseTableGrayScale>
 	<GammaResponseTableLuminance units='uint'>
-          0   1  3  5  8  19  29  37
-         56  87  108  132  228  246  267  358
-         475  504  534  567  676  716  770  800
-         837  892  920  950  975  990  1005  1015
+           0   1  3  4  8  13  19  27
+         38  49  63  79  93  113  136  161
+         180  211  243  284  321  371  413  465
+         506  562  615  688  738  800  867  943     
         1024
 	</GammaResponseTableLuminance>
 	<BackLightResponseTableLength units='uint'>21</BackLightResponseTableLength>
@@ -31,9 +31,9 @@
 		 800  850 900 950 1024
 	</BackLightResponseValueTable>
 	<BackLightResponseLumaValues units='uint'>
-		   20  49  102  158  214  264  319  374
-		   427  477  528  581  634  681  732  783
-		 832  879 928 979 1024
+		   20  47  100  153  206  255  306  363
+		   414  461  512  565  615  657  709  757
+		 808  851 904 948 1024
 	</BackLightResponseLumaValues>
 	<CABLSoftClippingSlope units='double'>0.32 0.28 0.25</CABLSoftClippingSlope>
 	<CABLLutType units='int'>3 3 3</CABLLutType>
