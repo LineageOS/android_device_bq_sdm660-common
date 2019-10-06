@@ -137,6 +137,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true \
     persist.vendor.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
+    persist.vendor.cne.feature=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=other \
@@ -147,8 +148,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=9,9 \
     ro.vendor.use_data_netmgrd=true \
     persist.radio.multisim.config=dsds \
-    persist.radio.proc_nw_scan=1 \
-    persist.radio.rat_on=disabled \
     persist.radio.VT_CAM_INTERFACE=2
 
 # Sensors
