@@ -709,16 +709,6 @@ vendor/firmware/a512_zap.b01
 vendor/firmware/a512_zap.b02
 vendor/firmware/a512_zap.elf
 vendor/firmware/a512_zap.mdt
-vendor/firmware/a530_gpmu.fw2
-vendor/firmware/a530_pfp.fw
-vendor/firmware/a530_pm4.fw
-vendor/firmware/a530v1_pfp.fw
-vendor/firmware/a530v1_pm4.fw
-vendor/firmware/a530v2_seq.fw2
-vendor/firmware/a530v3_gpmu.fw2
-vendor/firmware/a530v3_seq.fw2
-vendor/firmware/a540_gpmu.fw2
-
 
 # IRQ balance
 vendor/bin/msm_irqbalance
@@ -763,7 +753,6 @@ vendor/lib/libOmxApeDecSw.so
 vendor/lib/libOmxDsdDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxG711Dec.so
-vendor/lib/libOmxG711Enc.so
 vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxVpp.so
@@ -784,7 +773,6 @@ vendor/lib64/libOmxApeDec.so
 vendor/lib64/libOmxApeDecSw.so
 vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libOmxG711Dec.so
-vendor/lib64/libOmxG711Enc.so
 vendor/lib64/libOmxQcelp13Dec.so
 vendor/lib64/libOmxVpp.so
 vendor/lib64/libOmxWmaDec.so
