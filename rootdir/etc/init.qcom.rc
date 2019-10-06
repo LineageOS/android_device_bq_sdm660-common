@@ -619,12 +619,12 @@ service vendor.start_hci_filter /system/vendor/bin/wcnss_filter
 #   disabled
 #   oneshot
 
-service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
-    class late_start
-    user root
-    group bluetooth net_bt_admin misc net_bt_stack diag net_bt
-    disabled
-    oneshot
+#service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
+#    class late_start
+#    user root
+#    group bluetooth net_bt_admin misc net_bt_stack diag net_bt
+#    disabled
+#    oneshot
 
 service vendor.port-bridge /system/vendor/bin/port-bridge
     class main

@@ -1153,5 +1153,5 @@ vendor/bin/ptt_socket_app
 # init.qcom.rc
 #bin/bt_logger
 #bin/dun-server
-bin/ftmdaemon
+#bin/ftmdaemon
 vendor/bin/diag_mdlog
