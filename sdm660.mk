@@ -125,9 +125,7 @@ PRODUCT_PACKAGES += \
 
 # CABL
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/cabl/cabl_DJN_hx83112a_1080p_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cabl_DJN_hx83112a_1080p_video_mode_dsi_panel.xml \
-    device/bq/sdm660-common/configs/cabl/cabl_truly_hx83112a_1080p_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/cabl_truly_hx83112a_1080p_video_mode_dsi_panel.xml
-
+    device/bq/sdm660-common/configs/cabl/CABLConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/CABLConfig.xml \
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m \
@@ -256,6 +254,7 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
+    libOmxG711Enc \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
