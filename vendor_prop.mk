@@ -148,7 +148,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.use_data_netmgrd=true \
     persist.radio.multisim.config=dsds \
     persist.radio.proc_nw_scan=1 \
-    persist.radio.rat_on=disabled
+    persist.radio.rat_on=disabled \
+    persist.radio.VT_CAM_INTERFACE=2
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
