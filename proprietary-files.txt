@@ -1173,8 +1173,22 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Wi-Fi
 bin/move_wifi_data.sh
+lib64/android.hardware.wifi.supplicant@1.0.so
+lib64/android.hardware.wifi.supplicant@1.1.so
+lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
 vendor/bin/cnss-daemon
 vendor/bin/ptt_socket_app
+vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
+vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
+
+# Wi-Fi hostapd
+etc/hostapd/hostapd.accept
+etc/hostapd/hostapd.deny
+etc/hostapd/hostapd_default.conf
+lib64/android.hardware.wifi.hostapd@1.0.so
+lib64/vendor.qti.hardware.wifi.hostapd@1.0.so
+vendor/lib/vendor.qti.hardware.wifi.hostapd@1.0.so
+vendor/lib64/vendor.qti.hardware.wifi.hostapd@1.0.so
 
 # init.target.rc
 #bin/seempd
