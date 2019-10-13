@@ -1138,11 +1138,24 @@ vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
 
 # Thermal
+#bin/thermalserviced
+#etc/init/thermalservice.rc
+#lib/android.hardware.thermal@1.0.so
+#lib64/android.hardware.thermal@1.0.so
+#lib64/android.hardware.thermal@1.1.so
+#lib64/libthermalcallbak.so
+#lib64/libthermalservice.so
 vendor/bin/thermal-engine
+vendor/bin/hw/android.hardware.thermal@1.0-service
 vendor/etc/thermal-engine.conf
+vendor/etc/init/android.hardware.thermal@1.0-service.rc
 vendor/lib/libthermalclient.so
+vendor/lib/hw/android.hardware.thermal@1.0-impl.so
+vendor/lib/hw/thermal.zangya.so:vendor/lib/hw/thermal.sdm660.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
+vendor/lib64/hw/android.hardware.thermal@1.0-impl.so
+vendor/lib64/hw/thermal.zangya.so:vendor/lib64/hw/thermal.sdm660.so
 
 # Time services
 bin/move_time_data.sh
