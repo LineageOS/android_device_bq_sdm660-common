@@ -474,24 +474,6 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
 
 # DPM
-bin/dpmd
-etc/dpm/dpm.conf
-etc/init/dpmd.rc
-etc/permissions/com.qti.dpmframework.xml
-etc/permissions/dpmapi.xml
-framework/com.qti.dpmframework.jar
-framework/dpmapi.jar
-lib/com.qualcomm.qti.dpm.api@1.0.so
-lib/libdpmctmgr.so
-lib/libdpmfdmgr.so
-lib/libdpmframework.so
-lib/libdpmtcm.so
-lib64/com.qualcomm.qti.dpm.api@1.0.so
-lib64/libdpmctmgr.so
-lib64/libdpmfdmgr.so
-lib64/libdpmframework.so
-lib64/libdpmtcm.so
--priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
 vendor/lib/libdpmqmihal.so
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
@@ -918,8 +900,6 @@ lib64/vendor.qti.hardware.data.latency@1.0.so
 lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
 lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
 lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
-lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
-lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/adpl
@@ -950,8 +930,6 @@ vendor/lib/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib/vendor.qti.hardware.radio.qtiradio@1.0.so
 vendor/lib/vendor.qti.hardware.radio.qtiradio@2.0.so
 vendor/lib/vendor.qti.hardware.radio.qtiradio@2.1.so
-vendor/lib/vendor.qti.hardware.radio.qtiradio@2.2.so
-vendor/lib/vendor.qti.hardware.radio.qtiradio@2.3.so
 vendor/lib/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/lib/vendor.qti.hardware.radio.uim@1.0.so
@@ -998,8 +976,6 @@ vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
 vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
-vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so
@@ -1047,8 +1023,6 @@ lib/vendor.qti.hardware.radio.qcrilhook@1.0.so
 lib/vendor.qti.hardware.radio.qtiradio@1.0.so
 lib/vendor.qti.hardware.radio.qtiradio@2.0.so
 lib/vendor.qti.hardware.radio.qtiradio@2.1.so
-lib/vendor.qti.hardware.radio.qtiradio@2.2.so
-lib/vendor.qti.hardware.radio.qtiradio@2.3.so
 lib64/com.qualcomm.qti.imscmservice@1.0.so
 lib64/com.qualcomm.qti.imscmservice@2.0.so
 lib64/com.qualcomm.qti.imscmservice@2.1.so
@@ -1206,6 +1180,18 @@ vendor/bin/cnss-daemon
 vendor/bin/ptt_socket_app
 vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
 vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.0.so
+<<<<<<< HEAD
+=======
+
+# Wi-Fi hostapd
+etc/hostapd/hostapd.accept
+etc/hostapd/hostapd.deny
+etc/hostapd/hostapd_default.conf
+lib64/android.hardware.wifi.hostapd@1.0.so
+lib64/vendor.qti.hardware.wifi.hostapd@1.0.so
+vendor/lib/vendor.qti.hardware.wifi.hostapd@1.0.so
+vendor/lib64/vendor.qti.hardware.wifi.hostapd@1.0.so
+>>>>>>> ffad3fa... sdm660-common: Update support for supplicant and hostapd
 
 # Wi-Fi hostapd
 etc/hostapd/hostapd.accept
