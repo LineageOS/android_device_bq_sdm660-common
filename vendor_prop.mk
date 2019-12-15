@@ -96,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=android-bq
+    ro.com.google.clientidbase.ms=android-bq-rev2
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
