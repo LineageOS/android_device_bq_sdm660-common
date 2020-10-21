@@ -149,6 +149,17 @@ special_mode_mask values:
       <A3Video>s5k2l8_holitech_zangya_hfr_60_3a</A3Video>
     </ChromatixName>
     <ChromatixName sensor_resolution_index="5" special_mode_mask="0">
+      <ISPPreview>s5k2l8_holitech_zangya_hfr_60</ISPPreview>
+      <ISPSnapshot>s5k2l8_holitech_zangya_hfr_60</ISPSnapshot>
+      <ISPVideo>s5k2l8_holitech_zangya_hfr_60</ISPVideo>
+      <CPPPreview>s5k2l8_holitech_zangya_cpp_hfr_60</CPPPreview>
+      <CPPSnapshot>s5k2l8_holitech_zangya_cpp_hfr_60</CPPSnapshot>
+      <CPPVideo>s5k2l8_holitech_zangya_cpp_hfr_60</CPPVideo>
+      <CPPLiveshot>s5k2l8_holitech_zangya_cpp_hfr_60</CPPLiveshot>
+      <A3Preview>s5k2l8_holitech_zangya_hfr_60_3a</A3Preview>
+      <A3Video>s5k2l8_holitech_zangya_hfr_60_3a</A3Video>
+    </ChromatixName>
+    <ChromatixName sensor_resolution_index="6" special_mode_mask="0">
       <ISPPreview>s5k2l8_holitech_zangya_hfr_120</ISPPreview>
       <ISPSnapshot>s5k2l8_holitech_zangya_hfr_120</ISPSnapshot>
       <ISPVideo>s5k2l8_holitech_zangya_hfr_120</ISPVideo>
