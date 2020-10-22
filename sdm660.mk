@@ -202,7 +202,6 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.qcom.usb.rc \
     init.class_main.sh \
-    init.qcom.power.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \

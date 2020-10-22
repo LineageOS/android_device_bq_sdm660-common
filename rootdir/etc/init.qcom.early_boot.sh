@@ -1,6 +1,6 @@
 #! /vendor/bin/sh
 
-# Copyright (c) 2012-2013,2016,2018 The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2013,2016,2018-2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -53,6 +53,14 @@ if [ -f /sys/class/drm/card0-DSI-1/modes ]; then
         fb_width=${line%%x*};
         break;
     done < $mode_file
+elif [ -f /sys/class/drm/card0-DP-1/modes ]; then
+    echo "detect" > /sys/class/drm/card0-DP-1/status
+    is_dp_mode=1
+    mode_file=/sys/class/drm/card0-DP-1/modes
+    while read line; do
+        fb_width=${line%%x*};
+        break;
+    done < $mode_file
 elif [ -f /sys/class/graphics/fb0/virtual_size ]; then
     res=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
     fb_width=${res%,*}
@@ -71,6 +79,9 @@ fi
 function set_density_by_fb() {
     #put default density based on width
     if [ -z $fb_width ]; then
+        if [ $is_dp_mode -eq 1 ]; then
+            return;
+        fi
         setprop vendor.display.lcd_density 320
     else
         if [ $fb_width -ge 1600 ]; then
@@ -91,30 +102,143 @@ function set_density_by_fb() {
 
 target=`getprop ro.board.platform`
 case "$target" in
-    "sm6150")
+    "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
         case "$soc_hwplatform" in
-            "ADP")
-                setprop vendor.display.lcd_density 160
+            "FFA" | "SVLTE_FFA")
+                # linking to surf_keypad_qwerty.kcm.bin instead of surf_keypad_numeric.kcm.bin so that
+                # the UI keyboard works fine.
+                ln -s  /system/usr/keychars/surf_keypad_qwerty.kcm.bin /system/usr/keychars/surf_keypad.kcm.bin
+                ;;
+            "Fluid")
+                setprop vendor.display.lcd_density 240
+                setprop qcom.bt.dev_power_class 2
+                ;;
+            *)
+                ln -s  /system/usr/keychars/surf_keypad_qwerty.kcm.bin /system/usr/keychars/surf_keypad.kcm.bin
                 ;;
         esac
-        case "$soc_hwid" in
-            365|366)
-                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
-                if [ $sku_ver -eq 1 ]; then
-                    setprop vendor.media.sdmmagpie.version 1
+        ;;
+     "sm6150")
+         case "$soc_hwplatform" in
+             "ADP")
+                 setprop vendor.display.lcd_density 160
+                 ;;
+         esac
+         case "$soc_hwid" in
+             365|366)
+                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                 setprop vendor.media.target.version 1
+                 if [ $sku_ver -eq 1 ]; then
+                     setprop vendor.media.target.version 2
+                 fi
+                 ;;
+             355|369|377|384)
+                 setprop vendor.chre.enabled 0
+                 ;;
+             *)
+         esac
+         ;;
+    "msm8660")
+        case "$soc_hwplatform" in
+            "Fluid")
+                setprop vendor.display.lcd_density 240
+                ;;
+            "Dragon")
+                setprop ro.sound.alsa "WM8903"
+                ;;
+        esac
+        ;;
+
+    "msm8960")
+        # lcd density is write-once. Hence the separate switch case
+        case "$soc_hwplatform" in
+            "Liquid")
+                if [ "$soc_hwver" == "196608" ]; then # version 0x30000 is 3D sku
+                    setprop ro.sf.hwrotation 90
                 fi
+
+                setprop vendor.display.lcd_density 160
                 ;;
-            355)
-                setprop vendor.media.sm6150.version 1
-                setprop vendor.chre.enabled 0
+            "MTP")
+                setprop vendor.display.lcd_density 240
                 ;;
-            369|377|384)
-                setprop vendor.chre.enabled 0
+            *)
+                case "$soc_hwid" in
+                    "109")
+                        setprop vendor.display.lcd_density 160
+                        ;;
+                    *)
+                        setprop vendor.display.lcd_density 240
+                        ;;
+                esac
+            ;;
+        esac
+
+        #Set up composition type based on the target
+        case "$soc_hwid" in
+            87)
+                #8960
+                setprop debug.composition.type dyn
+                ;;
+            153|154|155|156|157|138)
+                #8064 V2 PRIME | 8930AB | 8630AB | 8230AB | 8030AB | 8960AB
+                setprop debug.composition.type c2d
                 ;;
             *)
         esac
         ;;
 
+    "msm8974")
+        case "$soc_hwplatform" in
+            "Liquid")
+                setprop vendor.display.lcd_density 160
+                # Liquid do not have hardware navigation keys, so enable
+                # Android sw navigation bar
+                setprop ro.hw.nav_keys 0
+                ;;
+            "Dragon")
+                setprop vendor.display.lcd_density 240
+                ;;
+            *)
+                setprop vendor.display.lcd_density 320
+                ;;
+        esac
+        ;;
+
+    "msm8226")
+        case "$soc_hwplatform" in
+            *)
+                setprop vendor.display.lcd_density 320
+                ;;
+        esac
+        ;;
+
+    "msm8610" | "apq8084" | "mpq8092")
+        case "$soc_hwplatform" in
+            *)
+                setprop vendor.display.lcd_density 240
+                ;;
+        esac
+        ;;
+    "apq8084")
+        case "$soc_hwplatform" in
+            "Liquid")
+                setprop vendor.display.lcd_density 320
+                # Liquid do not have hardware navigation keys, so enable
+                # Android sw navigation bar
+                setprop ro.hw.nav_keys 0
+                ;;
+            "SBC")
+                setprop vendor.display.lcd_density 200
+                # SBC do not have hardware navigation keys, so enable
+                # Android sw navigation bar
+                setprop qemu.hw.mainkeys 0
+                ;;
+            *)
+                setprop vendor.display.lcd_density 480
+                ;;
+        esac
+        ;;
     "msm8996")
         case "$soc_hwplatform" in
             "Dragon")
@@ -145,7 +269,7 @@ case "$target" in
                 setprop vendor.opengles.version 196610
                 if [ $soc_hwid = 354 ]
                 then
-                    setprop vendor.media.msm8937.version 1
+                    setprop vendor.media.target.version 1
                     log -t BOOT -p i "SDM429 early_boot prop set for: HwID '$soc_hwid'"
                 fi
                 ;;
@@ -173,6 +297,13 @@ case "$target" in
                 ;;
         esac
         ;;
+    "qcs605")
+        case "$soc_hwplatform" in
+            *)
+                setprop vendor.display.lcd_density 640
+                ;;
+        esac
+        ;;
     "sdm845")
         case "$soc_hwplatform" in
             *)
@@ -195,12 +326,50 @@ case "$target" in
                 ;;
         esac
         ;;
+    "kona")
+        case "$soc_hwplatform" in
+            *)
+                if [ $fb_width -le 1600 ]; then
+                    setprop vendor.display.lcd_density 560
+                else
+                    setprop vendor.display.lcd_density 640
+                fi
+                ;;
+        esac
+        ;;
+    "lito")
+        case "$soc_hwid" in
+            400|440)
+                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                if [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target.version 1
+                fi
+                ;;
+            434)
+                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                setprop vendor.media.target.version 2
+                if [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target.version 3
+                fi
+                ;;
+        esac
+        ;;
+    "bengal")
+        case "$soc_hwplatform" in
+            *)
+                sku_ver=`cat /sys/devices/platform/soc/5a00000.qcom,vidc/sku_version` 2> /dev/null
+                if [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target.version 1
+                fi
+                ;;
+        esac
+        ;;
     "sdm710" | "msmpeafowl")
         case "$soc_hwplatform" in
             *)
                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
                 if [ $sku_ver -eq 1 ]; then
-                    setprop vendor.media.sdm710.version 1
+                    setprop vendor.media.target.version 1
                 fi
                 ;;
         esac
@@ -214,7 +383,7 @@ case "$target" in
                 fi
 
                 if [ $cap_ver -eq 1 ]; then
-                    setprop vendor.media.msm8953.version 1
+                    setprop vendor.media.target.version 1
                 fi
                 ;;
     #Set property to differentiate SDM660 & SDM455
@@ -222,7 +391,7 @@ case "$target" in
     "sdm660")
         case "$soc_hwid" in
            385)
-               setprop vendor.media.sdm660.version 1
+               setprop vendor.media.target.version 1
         esac
         ;;
 esac
@@ -240,7 +409,7 @@ esac
 #Since lcd density has read only
 #property, it will not overwrite previous set
 #property if any target is setting forcefully.
-#set_density_by_fb - Set on device tree. BQ uses as default 420
+set_density_by_fb
 
 
 # set Lilliput LCD density for ADP
@@ -249,20 +418,9 @@ product=`getprop ro.build.product`
 case "$product" in
         "msmnile_au")
          setprop vendor.display.lcd_density 160
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
+         echo 902400000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
          echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/max_freq
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
-         echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/max_freq
-         ;;
-        *)
-        ;;
-esac
-case "$product" in
-        "msmnile_gvmq")
-         setprop vendor.display.lcd_density 160
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
-         echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/max_freq
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
+         echo 902400000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
          echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/max_freq
          ;;
         *)
@@ -275,7 +433,23 @@ case "$product" in
         *)
         ;;
 esac
+case "$product" in
+        "sdmshrike_au")
+         setprop vendor.display.lcd_density 160
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
+         ;;
+        *)
+        ;;
+esac
 
+case "$product" in
+        "msmnile_gvmq")
+         setprop vendor.display.lcd_density 160
+         ;;
+        *)
+        ;;
+esac
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
@@ -307,6 +481,10 @@ then
 else
     set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
 fi
+
+# allow system_graphics group to access pmic secure_mode node
+set_perms /sys/class/lcd_bias/secure_mode system.graphics 0660
+set_perms /sys/class/leds/wled/secure_mode system.graphics 0660
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
