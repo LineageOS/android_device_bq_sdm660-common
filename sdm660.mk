@@ -103,6 +103,7 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio@2.0-impl \
     libbthost_if
 
 # Boot animation
