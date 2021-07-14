@@ -18,6 +18,9 @@ COMMON_PATH := device/bq/sdm660-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
+# Broken
+BUILD_BROKEN_DUP_RULES := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
