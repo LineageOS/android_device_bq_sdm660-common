@@ -94,6 +94,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.lcd_density=420 \
     vendor.opengles.version=196610
 
+# DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.dpm.feature=3 \
+    persist.vendor.dpm.nsrm=1 \
+    persist.vendor.dpm.loglevel=7825
+
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.ms=android-bq-rev2
@@ -148,6 +154,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.proc_nw_scan=1 \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.use_se_table_only=1 \
+    persist.vendor.radio.procedure_bytes=SKIP \
+    persist.vendor.radio.sw_mbn_update=0 \
+    persist.vendor.radio.hw_mbn_update=0 \
+    persist.vendor.radio.start_ota_daemon=1 \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.telephony.default_network=9,9 \
     ro.vendor.use_data_netmgrd=true \
