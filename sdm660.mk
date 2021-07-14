@@ -410,6 +410,7 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     libqsap_sdk \
     libQWiFiSoftApCfg \
+    libwifi-hal-ctrl \
     libwifi-hal-qcom \
     wificond \
     wpa_supplicant \
