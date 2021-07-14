@@ -159,7 +159,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     copybit.sdm660 \
     gralloc.sdm660 \
-    hwcomposer.sdm660 \
     libdisplayconfig \
     liboverlay \
     libqdMetaData.system \
@@ -420,7 +419,6 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
     device/bq/sdm660-common/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     device/bq/sdm660-common/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     device/bq/sdm660-common/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
@@ -428,12 +426,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     hostapd \
-    hostapd_cli \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
     libwpa_client \
-    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
