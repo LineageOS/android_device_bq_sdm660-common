@@ -138,20 +138,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.iwlan.enable=true \
-    persist.vendor.data.mode=concurrent \
-    persist.data.netmgrd.qos.enable=true \
-    persist.vendor.cne.feature=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=other \
-    persist.vendor.radio.proc_nw_scan=1 \
     persist.vendor.radio.sib16_support=1 \
-    persist.vendor.radio.use_se_table_only=1 \
     persist.vendor.radio.procedure_bytes=SKIP \
-    persist.vendor.radio.sw_mbn_update=0 \
-    persist.vendor.radio.hw_mbn_update=0 \
-    persist.vendor.radio.start_ota_daemon=1 \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.telephony.default_network=9,9 \
     ro.vendor.use_data_netmgrd=true \
