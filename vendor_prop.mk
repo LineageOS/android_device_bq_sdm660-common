@@ -2,7 +2,6 @@
 # vendor props for zangya
 #
 
-
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
@@ -132,11 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.disable.pq=false \
     vendor.vidc.dec.enable.downscalar=0 \
     vidc.enc.target_support_bframe=1
-
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.nfc.smartcard.config=SIM1 \
-    ro.nfc.port=I2C
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
