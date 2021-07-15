@@ -338,6 +338,11 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
+# GNSS
+PRODUCT_PACKAGES += \
+    gps.conf \
+    flp.conf
+
 # RCS
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
