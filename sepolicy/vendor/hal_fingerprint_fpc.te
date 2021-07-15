@@ -9,8 +9,6 @@ r_dir_file(hal_fingerprint_fpc, sysfs_devfreq)
 
 allow hal_fingerprint_fpc fingerprintd_data_file:dir rw_dir_perms;
 allow hal_fingerprint_fpc fingerprintd_data_file:file create_file_perms;
-allow hal_fingerprint_fpc sysfs_fingerprint:dir r_dir_perms;
-allow hal_fingerprint_fpc sysfs_fingerprint:file rw_file_perms;
 allow hal_fingerprint_fpc tee_device:chr_file { open read write ioctl };
 allow hal_fingerprint_fpc uhid_device:chr_file rw_file_perms;
 # Ew

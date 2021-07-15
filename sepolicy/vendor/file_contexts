@@ -1,9 +1,12 @@
+# Files in rootfs
+/bt_firmware(/.*)?       u:object_r:bt_firmware_file:s0
+/firmware(/.*)?          u:object_r:firmware_file:s0
+
 # Sys files
 /sys/devices(/platform)?/soc/[a-z0-9]+\.qcom,jpeg/video4linux/video[0-9]+/name(/.*)?    u:object_r:sysfs_graphics:s0
 /sys/kernel/boot_wlan(/.*)?                                                             u:object_r:sysfs_wifi:s0
 
 # Fingerprint
-/sys/devices/soc/soc:fpc,fpc1020(/.*)?                                        u:object_r:sysfs_fingerprint:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint\.fpc@2\.1-service   u:object_r:hal_fingerprint_fpc_exec:s0
 
 # Light HAL
