@@ -320,6 +320,11 @@ PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     device/bq/sdm660-common/configs/telephony_product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-vendorcompat \
+    libprotobuf-cpp-lite-vendorcompat
+
 # QMI
 PRODUCT_PACKAGES += \
     libjson
