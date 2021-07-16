@@ -472,7 +472,7 @@ product/lib/libdpmtcm.so
 product/lib64/com.qualcomm.qti.dpm.api@1.0.so
 product/lib64/libdpmctmgr.so
 product/lib64/libdpmfdmgr.so
-product/lib64/libdpmframework.so
+product/lib64/libdpmframework.so|aed205cb981144399a0efdc4476ff9a99d13d83f
 product/lib64/libdpmtcm.so
 #-product/priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
