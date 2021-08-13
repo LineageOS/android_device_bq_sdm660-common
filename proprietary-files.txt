@@ -201,6 +201,7 @@ vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
+vendor/lib/libseemore.so
 vendor/lib/hw/camera.sdm660.so
 vendor/lib64/libmmcamera_dbg.so
 vendor/lib64/libmmcamera_faceproc.so
@@ -212,6 +213,7 @@ vendor/lib64/libmmcamera2_is.so
 vendor/lib64/libmmcamera2_q3a_core.so
 vendor/lib64/libmmcamera2_stats_algorithm.so
 vendor/lib64/libmmcamera2_stats_lib.so
+vendor/lib64/libseemore.so
 
 # Camera - Firmware
 vendor/firmware/cpp_firmware_v1_1_1.fw
