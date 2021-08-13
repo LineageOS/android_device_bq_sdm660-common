@@ -585,7 +585,9 @@ vendor/etc/xtwifi.conf
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
 -vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
 -vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
+vendor/lib/libbatching.so
 vendor/lib/libdataitems.so
+vendor/lib/libgeofencing.so
 vendor/lib/libizat_client_api.so
 vendor/lib/libqdma_file_agent.so
 vendor/lib/libxtadapter.so
@@ -597,7 +599,9 @@ vendor/lib/vendor.qti.gnss@2.1.so
 vendor/lib/vendor.qti.gnss@3.0.so
 vendor/lib/vendor.qti.hardware.cacert@1.0.so
 vendor/lib/hw/android.hardware.gnss@2.0-impl-qti.so
+vendor/lib64/libbatching.so
 vendor/lib64/libdataitems.so
+vendor/lib64/libgeofencing.so
 vendor/lib64/libgnss.so
 vendor/lib64/libgnsspps.so
 vendor/lib64/libgps.utils.so
