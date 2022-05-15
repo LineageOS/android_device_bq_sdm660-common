@@ -91,7 +91,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sdm.debug.disable_skip_validate=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
-    vendor.display.lcd_density=420 \
     vendor.opengles.version=196610
 
 # DPM
