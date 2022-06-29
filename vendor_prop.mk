@@ -79,6 +79,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.cabl.config_path=/vendor/etc/CABLConfig.xml \
     ro.vendor.display.cabl=2
 
+# Charger
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.charger.enable_suspend=true
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.gralloc.enable_fb_ubwc=1 \
