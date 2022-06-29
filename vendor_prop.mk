@@ -50,11 +50,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
+    bt.max.hfpclient.connections=1 \
     persist.vendor.bt.enable.splita2dp=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+    vendor.audio.feature.a2dp_offload.enable=true \
     vendor.bluetooth.soc=cherokee \
-    vendor.qcom.bluetooth.soc=cherokee \
-    ro.bluetooth.library_name=libbluetooth_qti.so
+    vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -75,26 +75,27 @@ vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcvirt.so
 
-# Bluetooth
--product/overlay/aptxalsOverlay.apk
--vendor/app/aptxals/aptxals.apk
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib64/libbtnv.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
+# Bluetooth - from Kirin - 53.1.A.3.85 package
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|dce7c7298b1801f6a037dc3e4597af56e3649bd0
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|4007c8b65076c9687674c0eff402cd5b169bf93c
+vendor/lib/libbt-hidlclient.so|38d5ab80892cd681ad3d2bc4ec42933b2e4caa8a
+vendor/lib/libbtnv.so|6239855c99c8d172bff2c94c961cc62cf9fd4e55
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|2def3aabe15c39a7f4e5559dad8b4707bb7ced92
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|849ea059cad68b3f6cbb72cfcc11e57865c75381
+vendor/lib64/libbt-hidlclient.so|9fefca0a83e677c36a1c47b2e834312afa2d99c6
+vendor/lib64/libbtnv.so|8d3ecaf157e8858875b827bc8a4380d53838f998
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d11a6abbaddbfee605c57a1a235c1da3011ee068
 
-# Bluetooth (ANT+)
-vendor/lib/com.qualcomm.qti.ant@1.0.so
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+# Bluetooth (ANT+) - from Kirin - 53.1.A.3.85 package
+product/lib/com.qualcomm.qti.ant@1.0.so|80c75a75d5d6c500f1373e3cc6e7b5c5eed20e3e
+product/lib64/com.qualcomm.qti.ant@1.0.so|d374b4deb0df088dfc6151c37385a9b125bf3427
+vendor/lib/com.qualcomm.qti.ant@1.0.so|6a6adbb6e00f8883db662e8bd95d06154b32ee09
+vendor/lib64/com.qualcomm.qti.ant@1.0.so|9dc1bc2f1d726d71af31cc8c955aba122bbcdb1e
+
+# Bluetooth (aptX) - from Kirin - 53.1.A.3.85 package
+lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # Camera
 vendor/lib/libcdsprpc.so
