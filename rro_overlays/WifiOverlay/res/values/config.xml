@@ -47,4 +47,7 @@
     <integer translatable="false" name="config_wifi_framework_wifi_score_entry_rssi_threshold_5GHz">-75</integer>
     <integer translatable="false" name="config_wifi_framework_wifi_score_low_rssi_threshold_5GHz">-75</integer>
 
+    <!-- Enable WPA2 to WPA3 auto-upgrade -->
+    <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+
 </resources>
