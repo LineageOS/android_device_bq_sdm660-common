@@ -19,8 +19,7 @@ $(call inherit-product-if-exists, vendor/bq/sdm660-common/sdm660-common-vendor.m
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/bq/sdm660-common/overlay
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
+PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Properties
 -include device/bq/sdm660-common/vendor_prop.mk
