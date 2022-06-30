@@ -416,6 +416,7 @@ vendor/etc/cne/wqeclient/ROW/ROW_profile20.xml
 vendor/etc/cne/wqeclient/ROW/ROW_profile21.xml
 vendor/etc/cne/wqeclient/ROW/ROW_profile32.xml
 vendor/etc/init/cnd.rc
+vendor/lib/libcacertclient.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneoplookup.so
@@ -438,6 +439,7 @@ vendor/lib/vendor.qti.hardware.slmadapter@1.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib/vendor.qti.latency@2.0.so
+vendor/lib64/libcacertclient.so
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
