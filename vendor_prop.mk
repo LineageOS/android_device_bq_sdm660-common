@@ -96,6 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1 \
+    vendor.display.disable_scaler=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
     vendor.opengles.version=196610
