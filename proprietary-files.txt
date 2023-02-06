@@ -907,7 +907,6 @@ vendor/bin/qrtr-ns
 vendor/bin/hvdcp_opti
 
 # Radio
--product/app/datastatusnotification/datastatusnotification.apk
 -product/app/embms/embms.apk
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 product/etc/permissions/embms.xml
