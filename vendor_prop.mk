@@ -94,6 +94,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.latch_unsignaled=1 \
     dev.pm.dyn_samplingrate=1 \
+    renderthread.skia.reduceopstasksplitting=true \
     sdm.debug.disable_partial_split=1 \
     sdm.debug.disable_skip_validate=1 \
     vendor.display.disable_scaler=1 \
