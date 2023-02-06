@@ -141,6 +141,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/cabl/CABLConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/CABLConfig.xml
 
+# Cgroup and task_profiles
+PRODUCT_COPY_FILES += \
+    device/bq/sdm660-common/configs/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    device/bq/sdm660-common/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
 # Component overrides
 PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
