@@ -167,6 +167,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.multishake=true \
     ro.vendor.sensors.sta_detect=true
 
+# SOC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=Qualcomm \
+    ro.soc.model=SDM660
+
 # Time daemon
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.delta_time.enable=true
