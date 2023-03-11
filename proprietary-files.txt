@@ -580,11 +580,13 @@ product/lib/vendor.qti.gnss@1.1.so
 product/lib/vendor.qti.gnss@1.2.so
 product/lib/vendor.qti.gnss@2.0.so
 product/lib/vendor.qti.gnss@2.1.so
+product/lib/vendor.qti.gnss@3.0.so
 product/lib64/vendor.qti.gnss@1.0.so
 product/lib64/vendor.qti.gnss@1.1.so
 product/lib64/vendor.qti.gnss@1.2.so
 product/lib64/vendor.qti.gnss@2.0.so
 product/lib64/vendor.qti.gnss@2.1.so
+product/lib64/vendor.qti.gnss@3.0.so
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
 vendor/bin/mlid
