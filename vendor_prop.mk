@@ -175,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.procedure_bytes=SKIP \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    ro.telephony.block_binder_thread_on_incoming_calls=false \
     ro.telephony.default_network=9,9 \
     ro.vendor.use_data_netmgrd=true \
     persist.radio.multisim.config=dsds \
