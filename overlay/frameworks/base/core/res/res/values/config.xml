@@ -513,10 +513,6 @@
         <item>-44</item>
     </integer-array>
 
-    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
-         in hardware. -->
-    <bool name="config_setColorTransformAccelerated">true</bool>
-
     <bool name="config_auto_attach_data_on_creation">false</bool>
 
     <!-- Values for GPS configuration -->
