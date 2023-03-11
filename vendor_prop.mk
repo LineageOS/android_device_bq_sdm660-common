@@ -133,6 +133,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# HEH filename encryption is being dropped
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=0 \
