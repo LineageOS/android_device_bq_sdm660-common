@@ -62,9 +62,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.audio.effect@6.0-impl \
-    android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.1-impl \
-    android.hardware.soundtrigger@2.1-service \
     audio.primary.sdm660 \
     audio.r_submix.default \
     audio.usb.default \
@@ -156,8 +154,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
-    android.hardware.drm@1.3.vendor \
-    move_widevine_data.sh
+    android.hardware.drm@1.3.vendor
 
 # Display
 PRODUCT_PACKAGES += \
@@ -168,10 +165,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    copybit.sdm660 \
     gralloc.sdm660 \
     libdisplayconfig \
-    liboverlay \
     libqdMetaData.system \
     libtinyxml \
     libvulkan \
@@ -217,10 +212,6 @@ PRODUCT_PACKAGES += \
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common
-
-# HW crypto
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
 
 # Init
 PRODUCT_PACKAGES += \
@@ -390,13 +381,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
-# RCS
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_api \
-    rcs_service_api.xml
-
 # Recovery
 PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
@@ -426,8 +410,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
-    android.hardware.thermal@1.0-service \
-    thermal.sdm660
+    android.hardware.thermal@1.0-service
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -439,10 +422,6 @@ PRODUCT_BOOT_JARS += \
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
-
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
 
 # Touchscreen
 PRODUCT_PACKAGES += \
