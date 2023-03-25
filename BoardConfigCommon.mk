@@ -99,9 +99,6 @@ TARGET_USES_64_BIT_BINDER := true
 # Camera
 USE_CAMERA_STUB := true
 
-# Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
