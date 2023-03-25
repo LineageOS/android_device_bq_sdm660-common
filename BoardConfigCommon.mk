@@ -159,7 +159,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/root/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
