@@ -431,6 +431,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libtinyxml2
 
+# Trust
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
