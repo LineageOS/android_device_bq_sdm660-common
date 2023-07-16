@@ -74,7 +74,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.bq.camerabq,com.bq.camerabq.debug,org.lineageos.snap" \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.vendor.camera.af.sync=2 \
     persist.vendor.camera.awb.sync=2 \
