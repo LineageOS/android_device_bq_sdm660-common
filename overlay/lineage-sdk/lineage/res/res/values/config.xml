@@ -71,5 +71,7 @@
         <item>com.bq.camerabq</item>
         <item>com.bq.camerabq.debug</item>
         <item>org.lineageos.snap</item>
+        <item>org.lineageos.aperture</item>
+        <item>org.lineageos.aperture.dev</item>
     </string-array>
 </resources>
