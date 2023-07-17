@@ -181,6 +181,10 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2020-11-01
 
+# Verity
+# Only needed for signing
+BOARD_AVB_ENABLE := false
+
 # VNDK
 BOARD_VNDK_VERSION := current
 
