@@ -108,7 +108,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.renderengine.backend=skiaglthreaded \
     debug.sf.hw=1 \
     debug.sf.enable_hwc_vds=1 \
-    debug.sf.latch_unsignaled=1 \
     dev.pm.dyn_samplingrate=1 \
     renderthread.skia.reduceopstasksplitting=true \
     sdm.debug.disable_partial_split=1 \
